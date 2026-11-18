@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI通信・ゲーム通信 投稿ツールのプライバシーポリシー。">
+  <title>プライバシーポリシー | AI通信・ゲーム通信 投稿ツール</title>
+  <style>
+    :root { color-scheme:light; --ink:#182230; --muted:#586678; --line:#dce3eb; --accent:#1456a0; --paper:#fff; --wash:#f4f7fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--wash); color:var(--ink); font:16px/1.75 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    header { background:#102a43; color:#fff; }
+    .wrap { width:min(920px,calc(100% - 40px)); margin-inline:auto; }
+    header .wrap { padding:38px 0 32px; }
+    h1 { margin:0 0 8px; font-size:clamp(1.8rem,4vw,2.6rem); line-height:1.25; }
+    header p { margin:0; color:#e1eaf3; }
+    main { padding:28px 0 48px; }
+    section { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:24px 28px; margin-bottom:16px; }
+    h2 { margin:0 0 10px; font-size:1.2rem; }
+    p { margin:0 0 10px; }
+    ul { margin:8px 0; padding-left:1.35rem; }
+    a { color:var(--accent); text-underline-offset:3px; }
+    .meta { color:var(--muted); font-size:.94rem; }
+    nav { padding:6px 0 30px; }
+    @media (max-width:600px) { .wrap { width:min(100% - 28px,920px); } section { padding:20px; } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><h1>プライバシーポリシー</h1><p>AI通信・ゲーム通信 投稿ツール</p></div></header>
+  <main class="wrap">
+    <p class="meta">制定日・最終更新日：2026年11月18日</p>
+    <section>
+      <h2>1. アプリの目的</h2>
+      <p>本アプリは、運営者が制作するAI通信・ゲーム通信の動画を、運営者自身のYouTubeチャンネルへアップロードし、公開日時を予約するための個人用Windowsツールです。一般利用者向けのアカウント登録機能や、運営者が管理するオンラインサーバーはありません。</p>
+    </section>
+    <section>
+      <h2>2. Google OAuthを利用する理由と権限</h2>
+      <p>運営者のGoogleアカウントで認証し、YouTube Data APIを呼び出すためにGoogle OAuthを使用します。アプリが要求する権限は、動画のアップロード、運営者のチャンネルと動画情報の読み取り、明示的な差し替え操作に必要な動画削除、および認証アカウントの確認です。</p>
+      <ul>
+        <li><code>youtube.upload</code>：動画をアップロードし、公開状態や予約時刻を設定するため。</li>
+        <li><code>youtube.readonly</code>：認証先チャンネルの照合、投稿履歴・動画情報の重複確認、投稿後の状態確認のため。</li>
+        <li><code>youtube.force-ssl</code>：運営者が明示的に動画の差し替えを行う場合、対象動画を削除するため。</li>
+        <li><code>openid</code> と <code>email</code>：一部の認証処理でGoogleアカウントを識別し、投稿先確認を補助するため。レポートに記録する場合はメールアドレスをマスキングします。</li>
+      </ul>
+      <p>実際に利用する権限は認証時にGoogleが表示する同意画面に示されます。アプリはユーザーの同意なしに投稿先チャンネルを変更しません。</p>
+    </section>
+    <section>
+      <h2>3. 取得・処理する情報</h2>
+      <p>認証とYouTube APIの利用に伴い、Googleアカウントの識別情報（許可された場合のメールアドレス）、チャンネルID・チャンネル名、アップロード済み動画のID・タイトル・状態、予約公開時刻など、チャンネルの確認と投稿処理に必要な情報を取得します。投稿する動画ファイルと、そのタイトル・説明・公開設定・予約時刻も処理します。</p>
+      <p>これらの情報は、認証先の照合、重複投稿の防止、投稿および予約状態の確認、エラーの調査に使用します。動画制作でニュース情報源やAIサービスを別途利用する場合、その制作処理に必要な入力だけを送信し、Google OAuthトークン、Googleアカウント情報、YouTube APIから取得したチャンネル・動画履歴は送信しません。</p>
+    </section>
+    <section>
+      <h2>4. 認証情報の保存と利用</h2>
+      <p>アクセストークンとリフレッシュトークンは運営者のWindows PC上のWindows Credential Managerに保存します。AI通信とゲーム通信は別々の保存項目を使い、チャンネルIDごとに認証を分けます。OAuthクライアントJSONも運営者のPC内に置き、公開サイト、動画生成物、投稿レポートには含めません。</p>
+      <p>トークンはGoogle OAuthサーバーでアクセストークンを更新し、YouTube APIに要求を送るためだけに使用します。運営者が管理するWebサーバーには送信・保存しません。ローカルの投稿履歴や処理レポートには、処理に必要なチャンネルID、動画情報、予約情報、APIの状態・エラー情報が記録される場合があります。トークン、クライアントシークレット、認可コードは公開ページに含めず、通常の処理レポートにも書き込みません。</p>
+    </section>
+    <section>
+      <h2>5. 第三者への提供</h2>
+      <p>OAuth認証情報とYouTube APIの要求はGoogleに送信されます。投稿する動画・タイトル・説明・公開設定は、YouTubeへのアップロード時にGoogle／YouTubeへ送信され、YouTubeの設定に従って公開または予約されます。OAuthトークン、Googleアカウント情報、YouTube APIから取得したチャンネル・動画情報を、これ以外の第三者へ販売または提供することはありません。</p>
+      <p>動画制作で利用する外部ニュース情報源やAIサービスは、制作に必要な入力を受け取る場合がありますが、前項のとおりGoogle OAuth認証情報やYouTube APIから取得したデータは含めません。公開ポリシーサイト自体には、アクセス解析、広告、Cookie、ログインフォームを設置しません。</p>
+    </section>
+    <section>
+      <h2>6. 保存期間と削除方法</h2>
+      <p>アプリの認証情報・処理レポート・投稿履歴は運営者のPC内に保存され、自動的なクラウド保存や一律の自動削除は行いません。認証を止めるにはGoogleアカウントの「サードパーティ製アプリとサービス」の接続管理から本アプリのアクセスを取り消し、PCのWindows Credential Managerから該当するAI通信またはゲーム通信の認証項目を削除してください。ローカルのレポートや投稿履歴が不要な場合は、各エンジンのログ・出力・履歴ファイルも削除してください。</p>
+      <p>削除方法について支援が必要な場合は、下記の問い合わせ先へご連絡ください。YouTubeに投稿済みの動画は、YouTube Studioから別途削除してください。</p>
+    </section>
+    <section>
+      <h2>7. 安全管理</h2>
+      <p>認証情報はWindows Credential Managerで保管し、AI通信とゲーム通信の認証領域を分離します。ログやレポートを調査用に出力する場合は、トークンやクライアントシークレットを含めないようにします。ただし、PCの紛失・不正アクセスなど、運営者の管理外の事象による漏えいを完全に防げることを保証するものではありません。</p>
+    </section>
+    <section>
+      <h2>8. ポリシーの変更と問い合わせ</h2>
+      <p>アプリのデータ処理方法を変更した場合、このページを更新します。問い合わせ先：<a href="mailto:tm_sug16_2b@yahoo.co.jp">tm_sug16_2b@yahoo.co.jp</a></p>
+    </section>
+    <nav><a href="index.html">ホームへ戻る</a>　<a href="terms.html">利用規約</a></nav>
+  </main>
+</body>
+</html>
